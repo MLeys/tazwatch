@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Known Tazmanian Devils</h1>
+
+
+{% for taz in tazs  %}
+<div class="card">
+    <div class="card-header">
+      <span class="">{{ taz.name }}</span>
+    </div>
+    <div class="card-body">
+      <p>Sex: {{ taz.sex }}</p>
+      <p>Location: {{ taz.location }}</p>
+      {% if taz.age > 0 %}
+        <p>Age: {{ taz.age }}</p>
+      {% else %}
+        
+        {% if 0 > taz.age %}
+        <p>Age: Unknown(wild)</p>
+      {% else %}
+        <p>Age: Newborn</p>
+        {% endif %}
+            
+      {% endif %}
+    </div>
+  </div>
+    
+{% endfor %}
+    
+<p>Let us know about your sighting!</p>
+===========================================================================
+{% for taz in tazs  %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src={{ taz.image }} class="img-fluid rounded-start" alt={{ taz.name }}>
+      </div>
+      
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{ taz.name }}</h3>
+          <p class="card-text">Sex: {{ taz.sex }}</p>
+          <p class="card-text">Location: {{ taz.location }}</p>
+          {% if taz.age > 0 %}
+            <p class="card-text">Age: {{ taz.age }}</p>
+          {% else %}
+            
+            {% if 0 > taz.age %}
+            <p class="card-text">Age: Unknown(wild)</p>
+          {% else %}
+            <p class="card-text">Age: Newborn</p>
+            {% endif %}
+                
+          {% endif %}
+          <p class="card-text">Note: {{ taz.note }}</p>
+
+          <p class="card-text"></p>
+          <p class="card-text"><small class="text-muted">Last seen xxxxxx </small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+<br><br>
+{% endblock content %}
