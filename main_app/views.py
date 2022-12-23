@@ -1,9 +1,17 @@
 from django.shortcuts import render
 
 # Add the following import
+from django.views.generic.edit import CreateView
 from django.http import HttpResponse
 from .models import Taz
 
+
+# class TazUpdate(UpdateView):
+#   model = Taz
+
+class TazCreate(CreateView):
+  model = Taz
+  fields = ['name', 'sex', 'location', 'age', 'note']
 
 # Define the home view
 def home(request):
