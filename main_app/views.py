@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from .models import Taz
+from .forms import FeedingForm
 
 
 # class TazUpdate(UpdateView):
@@ -37,6 +38,9 @@ def tazs_index(request):
 
 def tazs_detail(request, taz_id):
   taz = Taz.objects.get(id=taz_id)
-  return render(request, 'tazs/detail.html', {'taz': taz})
+  feeding_form = FeedingForm()
+
+  return render(request, 'tazs/detail.html', {'taz': taz, 'feeding_form': feeding_form})
+    
 
 
