@@ -25,7 +25,7 @@ MEALS = (
 )
 
 class Feeding(models.Model):
-	date = models.DateField()
+	date = models.DateField('Feeding Date')
 	meal = models.CharField(
 		max_length=1,
 		choices=MEALS, 
