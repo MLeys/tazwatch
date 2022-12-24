@@ -2,79 +2,64 @@
 
 {% block content %}
 
-<div class="container-fluid">
-  <div class="card "  >
-    <div class="row g-0">
-      <div class="col-2">
-        <img src={{ taz.image.url }} class="img-fluid rounded-start" alt={{ taz.name }}>
-      </div>
-      
-      <div class="col-6">
-        <div class="card-body">
-          <h3 class="card-title">{{ taz.name }}</h3>
-          <p class="card-text">Sex: {{ taz.sex }}</p>
-          <p class="card-text">Location: {{ taz.location }}</p>
-          {% if taz.age > 0 %}
-            <p class="card-text">Age: {{ taz.age }}</p>
-          {% else %}
-            
-            {% if 0 > taz.age %}
-            <p class="card-text">Age: Unknown(wild)</p>
-          {% else %}
-            <p class="card-text">Age: Newborn</p>
-            {% endif %}
-                
-          {% endif %}
-          <p class="card-text">Note: {{ taz.note }}</p>
-
-          <p class="card-text"></p>
-          <p class="card-text"><small class="text-muted">Last seen xxxxxx </small></p>
+<div class="row g-0">
+  <div class="col-6">
+    <div class="card mb-3" style="max-width: 540px;" >
+      <div class="row g-0">
+        <div class="col-4">
+          <img src={{ taz.image.url }} class="img-fluid rounded-start" alt={{ taz.name }}>
         </div>
-        <div class="card-footer">
+        
+        <div class="col-8">
+          <div class="card-body">
+            <h3 class="card-title">{{ taz.name }}</h3>
+            <p class="card-text">Sex: {{ taz.sex }}</p>
+            <p class="card-text">Location: {{ taz.location }}</p>
+            {% if taz.age > 0 %}
+              <p class="card-text">Age: {{ taz.age }}</p>
+            {% else %}
+              
+              {% if 0 > taz.age %}
+              <p class="card-text">Age: Unknown(wild)</p>
+            {% else %}
+              <p class="card-text">Age: Newborn</p>
+              {% endif %}
+                  
+            {% endif %}
+            <p class="card-text">Note: {{ taz.note }}</p>
+  
+            <p class="card-text"></p>
+            <p class="card-text"><small class="text-muted">Last seen xxxxxx </small></p>
+          </div>
+          <div class="card-footer">
             <div class="btn">
                 <a href="{% url 'tazs_update' taz.id %}">Edit</a>
                 <a href="{% url 'tazs_delete' taz.id %}">Delete</a>
             </div>
-        </div>
-      </div>
-      <div class="col-2 ">
-        <div class="card-body ">
-          <table class="table-striped">
-            <thead>
-              <tr><th>Date</th></tr>
-            </thead>
-            <tbody>
-              {% for feeding in taz.feeding_set.all %}
-                <tr>
-                  <td>{{feeding.date}}</td>
-               
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="col-2 ">
-        <div class="card-body ">
-          <table class="table-striped">
-            <thead class="">
-              <tr><th>Meal</th></tr>
-            </thead>
-            <tbody>
-              {% for feeding in taz.feeding_set.all %}
-                <tr>
-                  
-                  <td>{{feeding.get_meal_display}}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="col-6 ">
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Date</th><th>Meal</th></tr>
+      </thead>
+      <tbody>
+        {% for feeding in taz.feeding_set.all %}
+          <tr>
+            <td>{{feeding.date}}</td>
+            <td>{{feeding.get_meal_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
+  </div>
 </div>
+  
+
 
 <br><br>
 {% endblock content %}
