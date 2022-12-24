@@ -12,3 +12,6 @@ body {
     padding-top: 0;
     text-align: right;
   }
+  .asteriskField {
+    display: none;
+}

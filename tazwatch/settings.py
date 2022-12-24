@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    'crispy_bootstrap5',
     'main_app',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CRISPY_CLASS_CONVERTERS = {'textinput': "textinput inputtext"}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
