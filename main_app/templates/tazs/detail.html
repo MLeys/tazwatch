@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<br>
 <div class="row g-0">
-  <div class="col-6">
+  <div class="col-8">
     <div class="card mb-3" style="max-width: 540px;" >
       <div class="row g-0">
-        <div class="col-4">
-          <img src={{ taz.image.url }} class="img-fluid rounded-start" alt={{ taz.name }}>
-        </div>
+
         
-        <div class="col-8">
+        <div class="col-12">
           <div class="card-body">
-            <h3 class="card-title">{{ taz.name }}</h3>
+            <div class="clearfix">
+              <img src={{ taz.image.url }} class="col-md-6 float-md-end mb-3 ms-md-3" alt={{ taz.name }}>
+              <h3 class="card-title">{{ taz.name }}</h3>
+            </div>
+            
             <p class="card-text">Sex: {{ taz.sex }}</p>
             <p class="card-text">Location: {{ taz.location }}</p>
             {% if taz.age > 0 %}
@@ -41,7 +43,7 @@
       </div>
     </div>
   </div>
-  <div class="col-6 ">
+  <div class="col-4 ">
     <table class="table table-striped">
       <thead>
         <tr><th>Date</th><th>Meal</th></tr>
