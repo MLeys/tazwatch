@@ -1,10 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Add the following import
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from .models import Taz
 from .forms import FeedingForm
+from bootstrap_datepicker_plus.widgets import DatePickerInput
+
+def add_feeding(request, taz_id):
+    form = FeedingForm(request.POST)
+    if form.is_valid():
+      new_feeding = form.save(commit=False)
+      new_feeding.taz_id = taz_id
+      new_feeding.save()
+    return redirect('detail', taz_id=taz_id)
 
 
 # class TazUpdate(UpdateView):

@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+   
+    "bootstrap_datepicker_plus",
     'crispy_forms',
     'crispy_bootstrap5',
     'main_app',
