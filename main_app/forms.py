@@ -11,7 +11,7 @@ class FeedingForm(ModelForm):
 		model = Feeding
 		fields = ['date', 'meal']
 		widgets = {
-			 "date": DatePickerInput(),
+			 "date": DatePickerInput(options={"format": "MM/DD/YYYY"}),
 			# 'date' : DateInput(),
             # 'time' : TimeInput(), 
 		}

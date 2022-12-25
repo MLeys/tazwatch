@@ -48,18 +48,13 @@
     </div>
   </div>
   <div class="col-4 ">
-    
-    <form action="{% url 'add_feeding' taz.id %}" method="post">
-      {% csrf_token %}
-     
-        <!-- {{ feeding_form|crispy }} -->
-        <!-- {{ feeding_form.as_p }} -->
-        <!-- {{ feeding_form | crispy }} -->
-      {% crispy feeding_form  %}
-     
-        
-    <input class="btn btn-danger" role="button" type="submit">Add Feeding</a>
-    </form>
+		<form action="{% url 'add_feeding' taz.id %}" method="post">
+			<input type="submit" class="btn btn-primary text-centered" value="Add Feeding">
+      		{% csrf_token %}
+      		{% crispy feeding_form %}
+      		
+		</form>
+
     
     <table class="table table-striped">
       <thead>
