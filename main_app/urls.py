@@ -14,9 +14,10 @@ urlpatterns = [
 
     path('tazs/<int:taz_id>/add_feeding/', views.add_feeding, name='add_feeding'),
 
-    
+
     path('restrictions/', views.RestrictionList.as_view(), name='restrictions_index'),
 	path('restrictions/<int:pk>/', views.RestrictionDetail.as_view(), name='restrictions_detail'),
 	path('restrictions/create/', views.RestrictionCreate.as_view(), name='restrictions_create'),
-
+	path('restrictions/<int:pk>/update/', views.RestrictionUpdate.as_view(), name='restrictions_update'),
+	path('restrictions/<int:pk>/delete/', views.RestrictionDelete.as_view(), name='restrictions_delete'),
 ]

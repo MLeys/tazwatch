@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 
 # Add the following import
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
-from .models import Taz
+from .models import Taz, Restriction
 from .forms import FeedingForm
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 
@@ -53,16 +54,23 @@ def tazs_detail(request, taz_id):
 
 class RestrictionList(ListView):
     model = Restriction
+    template_name = 'restrictions/index.html'
    
-
 class RestrictionDetail(DetailView):
     model = Restriction
+    template_name = 'restrictions/detail.html'
     
-
 class RestrictionCreate(CreateView):
     model = Restriction
     fields = '__all__'
-    
+
+class RestrictionUpdate(UpdateView):
+  model = Restriction
+  fields = '__all__'
+
+class RestrictionDelete(DeleteView):
+  model = Restriction
+  success_url = '/restrictions/'
     
 
 
