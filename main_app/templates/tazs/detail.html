@@ -86,7 +86,7 @@
               </div>
               <div class="card-body">
                 <div class="clearfix">
-                  <p class="card-text">Category: {{ restriction.category }}</p>
+                  <p class="card-text">Category: {{ restriction.get_category_display }}</p>
                   <p class="card-text">Description: {{ restriction.description }}</p>
                 </div>
               </div>
@@ -113,7 +113,7 @@
           </div>
           <div class="card-body">
             <div class="clearfix">
-              <p class="card-text">Category: {{ restriction.category }}</p>
+              <p class="card-text">Category: {{ restriction.get_category_display }}</p>
               <p class="card-text">Description: {{ restriction.description }}</p>
             </div>
           </div>

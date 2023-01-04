@@ -38,6 +38,8 @@ class Taz(models.Model):
     restrictions = models.ManyToManyField(Restriction)
 
 
+    def __str__(self):
+        return self.name
 
         ## This handles REDIRECTS FOR OUR CBV's
     def get_absolute_url(self):
