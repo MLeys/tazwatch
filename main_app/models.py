@@ -34,8 +34,8 @@ class Taz(models.Model):
     location = models.CharField(max_length=100)
     age = models.IntegerField()
     note = models.TextField(max_length=250)
-    image = models.ImageField(upload_to='main_app/static/images/')
-    restrictions = models.ManyToManyField(Restriction)
+    image = models.ImageField(upload_to='static/images', blank=True)
+    restrictions = models.ManyToManyField(Restriction, blank=True, default='')
 
 
     def __str__(self):

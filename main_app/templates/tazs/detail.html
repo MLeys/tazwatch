@@ -13,7 +13,21 @@
         <div class="col-12">
           <div class="card-body">
             <div class="clearfix">
-              <img src={{ taz.image.url }} class="col-md-6 float-md-end mb-3 ms-md-3" alt={{ taz.name }}>
+              
+              {% if taz.image %}
+                <img src={{ taz.image.url }} class="col-md-6 float-md-end mb-3 ms-md-3" alt={{ taz.name }}>
+              {% else %}
+          
+                {% if taz.sex == 'Male' %}
+                  <img src="../../static/images/male_taz.png" class="col-md-6 float-md-end mb-3 ms-md-3"alt={{ taz.name }}>
+      
+                {% else %}
+                  <img src="../../static/images/female_taz.webp" class="col-md-6 float-md-end mb-3 ms-md-3" alt={{ taz.name }}>
+      
+                {% endif %}
+              
+              {% endif %}
+                
               <h3 class="card-title">{{ taz.name }}</h3>
               <p class="card-text">Sex: {{ taz.sex }}</p>
               <p class="card-text">Location: {{ taz.location }}</p>
@@ -120,9 +134,11 @@
           <div class="card-action">
             <form action="{% url 'assoc_restriction' taz.id restriction.id %}" method="post">
               {% csrf_token %}
-              <span>
+              <div class="d-grid gap-2 col-8 mx-auto">
                 <button type="submit" class="btn btn-success">Add</button>
-              </span>
+              </div>
+                
+              
             </form>
           </div>
 

@@ -10,7 +10,25 @@
   <a href="/tazs/{{ taz.id }}">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src={{ taz.image.url }} class="img-fluid rounded-start" alt={{ taz.name }}>
+        
+        {% if taz.image %}
+          <img src={{ taz.image.url }} class="img-fluid rounded-start" alt={{ taz.name }}>
+
+        {% else %}
+          
+          {% if taz.sex == 'Male' %}
+            <img src="../../static/images/male_taz.png" class="img-fluid rounded-start" alt={{ taz.name }}>
+
+          {% else %}
+            <img src="../../static/images/female_taz.webp" class="img-fluid rounded-start" alt={{ taz.name }}>
+
+          {% endif %}
+            
+          
+        {% endif %}
+          
+
+
       </div>
       
       <div class="col-md-8">

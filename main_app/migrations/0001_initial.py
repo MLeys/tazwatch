@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('location', models.CharField(max_length=100)),
                 ('age', models.IntegerField()),
                 ('note', models.TextField(max_length=250)),
-                ('image', models.ImageField(upload_to='')),
+                ('image', models.ImageField(upload_to='../static/images', blank=True)),
             ],
         ),
     ]
