@@ -27,8 +27,6 @@ class TazDelete(DeleteView):
   success_url = '/tazs/'
   
 
-
-
 class TazCreate(CreateView):
   model = Taz
   # fields = ['name', 'sex', 'location', 'age', 'note']
@@ -50,6 +48,22 @@ def tazs_detail(request, taz_id):
   feeding_form = FeedingForm()
 
   return render(request, 'tazs/detail.html', {'taz': taz, 'feeding_form': feeding_form})
+
+
+
+class RestrictionList(ListView):
+    model = Restriction
+   
+
+class RestrictionDetail(DetailView):
+    model = Restriction
     
+
+class RestrictionCreate(CreateView):
+    model = Restriction
+    fields = '__all__'
+    
+    
+
 
 

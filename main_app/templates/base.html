@@ -32,11 +32,17 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
-					<li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">View All</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'restriction_create' %}">Add Restriction</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'tazs_create' %}">Add Taz</a>
+            <a class="nav-link" href="{% url 'restriction_index' %}">View All Restrictions</a>
+          </li>
+					<li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">View All Devils</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'tazs_create' %}">Add a Devil</a>
           </li>
         </ul>
         <!-- <form role="search">

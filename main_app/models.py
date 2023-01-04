@@ -1,6 +1,33 @@
 from django.db import models
 from django.urls import reverse
 
+
+class Restriction(models.Model):
+    DIET = 'DT'
+    SOCIAL = 'SC'
+    PHYSICAL = 'PH'
+    OTHER = 'OT'
+    CATEGORY_OPTIONS = [
+        (DIET, 'Diet'),
+        (SOCIAL, 'Social'),
+        (PHYSICAL, 'Physical'),
+        (OTHER, 'Other'),
+        ]
+    name = models.CharField(max_length=50)
+    category = models.CharField(
+        max_length=2,
+        choices=CATEGORY_OPTIONS,
+        default=DIET,
+        )
+    description = models.TextField(max_length=500)
+    
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('restrictions_detail', kwargs={'pk': self.id})
+
+
 class Taz(models.Model):
     name = models.CharField(max_length=100)
     sex = models.CharField(max_length=100)
