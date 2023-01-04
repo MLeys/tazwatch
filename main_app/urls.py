@@ -20,4 +20,7 @@ urlpatterns = [
 	path('restrictions/create/', views.RestrictionCreate.as_view(), name='restrictions_create'),
 	path('restrictions/<int:pk>/update/', views.RestrictionUpdate.as_view(), name='restrictions_update'),
 	path('restrictions/<int:pk>/delete/', views.RestrictionDelete.as_view(), name='restrictions_delete'),
+
+    path('tazs/<int:taz_id>/assoc_restriction/<int:restriction_id>/', views.assoc_restriction, name='assoc_restriction'),
+
 ]

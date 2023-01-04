@@ -69,6 +69,71 @@
 
   </div>
 </div>
+<hr>
+<div class="row g-0">
+  <div class="col-6">
+    <span class="bg-warning">
+      <h3 class="text-center">{{ taz.name }}'s Restrictions</h3>
+    </span>
+
+    {% if taz.restrictions.count %}
+      {% for restriction in taz.restrictions.all %}
+        <div class="card mb-3 mx-2" style="max-width: 540px;" >
+          <div class="row g-0">
+            <div class="col-12">
+              <div class="card-header">
+                <h3 class="card-title text-dark">{{ restriction.name }}</h3>
+              </div>
+              <div class="card-body">
+                <div class="clearfix">
+                  <p class="card-text">Category: {{ restriction.category }}</p>
+                  <p class="card-text">Description: {{ restriction.description }}</p>
+                </div>
+              </div>
+              <!-- <div class="card-footer">
+                <a href="{% url 'restrictions_update' restriction.id %}" class="btn btn-secondary" role="button">Edit</a>
+                <a href="{% url 'restrictions_delete' restriction.id %}" class="btn btn-danger" role="button">Delete</a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No restrictions </h5>
+    {% endif %}
+  </div>
+  <div class="col-6">
+
+    <h3 class="text-center">Available Restrictions</h3>
+    {% if taz.restrictions.count %}
+      {% for restriction in restrictions.all %}
+        <div class="card mb-3 mx-2">
+          <div class="card-header">
+            <h3 class="card-title text-dark">{{ restriction.name }}</h3>
+          </div>
+          <div class="card-body">
+            <div class="clearfix">
+              <p class="card-text">Category: {{ restriction.category }}</p>
+              <p class="card-text">Description: {{ restriction.description }}</p>
+            </div>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_restriction' taz.id restriction.id %}" method="post">
+              {% csrf_token %}
+              <span>
+                <button type="submit" class="btn btn-success">Add</button>
+              </span>
+            </form>
+          </div>
+
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No restrictions </h5>
+    {% endif %}
+  </div>
+  <!-- Available restrictions will come after this line -->
+</div>
   
 
 

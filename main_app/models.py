@@ -20,7 +20,7 @@ class Restriction(models.Model):
         default=DIET,
         )
     description = models.TextField(max_length=500)
-    
+
     def __str__(self):
         return self.name
 
@@ -35,6 +35,7 @@ class Taz(models.Model):
     age = models.IntegerField()
     note = models.TextField(max_length=250)
     image = models.ImageField(upload_to='main_app/static/images/')
+    restrictions = models.ManyToManyField(Restriction)
 
 
 
