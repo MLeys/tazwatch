@@ -9,12 +9,9 @@
 
 <form action="" method="post">
 {% csrf_token %}
-<input type="submit" value="Yes! - Delete!" class="btn btn-warning">
-<a type="button" class="btn btn-secondary" href="{% url 'detail' restriction.id%}">Cancel</a>
-
+    <input type="submit" value="Yes! - Delete!" class="btn btn-warning">
+    <a type="button" class="btn btn-secondary" href="{% url 'detail' restriction.id%}">Cancel</a>
 
 </form>
-
-
 {% endblock content %}
     
